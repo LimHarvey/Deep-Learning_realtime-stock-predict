@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="windowModality">
+   <enum>Qt::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>777</width>
+    <height>556</height>
+   </rect>
+  </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <property name="modal">
+   <bool>true</bool>
+  </property>
+  <layout class="QFormLayout" name="formLayout">
+   <item row="0" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QComboBox" name="cmb_year">
+      <property name="minimumContentsLength">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>년</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmb_mon">
+      <property name="minimumContentsLength">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>월</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmb_date">
+      <property name="minimumContentsLength">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>일</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_start">
+      <property name="text">
+       <string>그룹핑하기</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="2" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QLabel" name="label_4">
+      <property name="text">
+       <string>Gorup A &lt;=</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="thresh1">
+      <property name="minimum">
+       <double>-99.989999999999995</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>-10.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_5">
+      <property name="text">
+       <string>Group B &lt;=</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="thresh2">
+      <property name="minimum">
+       <double>-99.989999999999995</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>-5.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_6">
+      <property name="text">
+       <string>Group C &lt;=</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="thresh3">
+      <property name="minimum">
+       <double>-99.989999999999995</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_7">
+      <property name="text">
+       <string>Group D &lt;=</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="thresh4">
+      <property name="minimum">
+       <double>-99.989999999999995</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>5.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_8">
+      <property name="text">
+       <string>Group E &lt;=</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="thresh5">
+      <property name="minimum">
+       <double>-99.000000000000000</double>
+      </property>
+      <property name="singleStep">
+       <double>0.100000000000000</double>
+      </property>
+      <property name="value">
+       <double>10.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_9">
+      <property name="text">
+       <string>&lt; Group F</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="4" column="0">
+    <widget class="QLabel" name="label_11">
+     <property name="text">
+      <string>대신 Data</string>
+     </property>
+    </widget>
+   </item>
+   <item row="4" column="1">
+    <widget class="QLabel" name="label_12">
+     <property name="text">
+      <string>키움 Data</string>
+     </property>
+    </widget>
+   </item>
+   <item row="5" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter_6">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QSplitter" name="splitter_5">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QSplitter" name="splitter_4">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <widget class="QLabel" name="label_14">
+        <property name="text">
+         <string>매도잔량</string>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="sell_thres">
+        <property name="decimals">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <double>390.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>15.000000000000000</double>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="text">
+         <string>매수잔량</string>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="buy_thres">
+        <property name="decimals">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <double>390.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>15.000000000000000</double>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_15">
+        <property name="text">
+         <string>체결강도</string>
+        </property>
+       </widget>
+       <widget class="QDoubleSpinBox" name="str_thres">
+        <property name="decimals">
+         <number>0</number>
+        </property>
+        <property name="maximum">
+         <double>390.000000000000000</double>
+        </property>
+        <property name="value">
+         <double>5.000000000000000</double>
+        </property>
+       </widget>
+      </widget>
+      <widget class="QTableWidget" name="main_table">
+       <property name="dragEnabled">
+        <bool>true</bool>
+       </property>
+       <property name="alternatingRowColors">
+        <bool>true</bool>
+       </property>
+       <property name="rowCount">
+        <number>1</number>
+       </property>
+       <attribute name="horizontalHeaderMinimumSectionSize">
+        <number>15</number>
+       </attribute>
+       <attribute name="horizontalHeaderDefaultSectionSize">
+        <number>70</number>
+       </attribute>
+       <attribute name="verticalHeaderDefaultSectionSize">
+        <number>25</number>
+       </attribute>
+       <row/>
+      </widget>
+     </widget>
+     <widget class="QTableWidget" name="main_table_2">
+      <property name="dragEnabled">
+       <bool>true</bool>
+      </property>
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="rowCount">
+       <number>1</number>
+      </property>
+      <attribute name="horizontalHeaderMinimumSectionSize">
+       <number>15</number>
+      </attribute>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>70</number>
+      </attribute>
+      <attribute name="verticalHeaderDefaultSectionSize">
+       <number>25</number>
+      </attribute>
+      <row/>
+     </widget>
+    </widget>
+   </item>
+   <item row="7" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter_2">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QLabel" name="label_10">
+      <property name="text">
+       <string>그룹 활성화 :    </string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="groupA">
+      <property name="text">
+       <string>group A</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="groupE">
+      <property name="text">
+       <string>group E</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="groupF">
+      <property name="text">
+       <string>group F</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="groupC">
+      <property name="text">
+       <string>group C</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="groupD">
+      <property name="text">
+       <string>group D</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="groupB">
+      <property name="text">
+       <string>group B</string>
+      </property>
+      <property name="checked">
+       <bool>true</bool>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="9" column="0" colspan="2">
+    <widget class="QTableWidget" name="main_table_5">
+     <property name="dragEnabled">
+      <bool>true</bool>
+     </property>
+     <property name="alternatingRowColors">
+      <bool>true</bool>
+     </property>
+     <property name="rowCount">
+      <number>1</number>
+     </property>
+     <attribute name="horizontalHeaderMinimumSectionSize">
+      <number>15</number>
+     </attribute>
+     <attribute name="horizontalHeaderDefaultSectionSize">
+      <number>90</number>
+     </attribute>
+     <attribute name="verticalHeaderDefaultSectionSize">
+      <number>25</number>
+     </attribute>
+     <row/>
+    </widget>
+   </item>
+   <item row="11" column="1">
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>Dialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>248</x>
+     <y>254</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>157</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>Dialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>316</x>
+     <y>260</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>286</x>
+     <y>274</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
