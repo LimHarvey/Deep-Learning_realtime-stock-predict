@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>777</width>
-    <height>556</height>
+    <width>896</width>
+    <height>673</height>
    </rect>
   </property>
   <property name="cursor">
@@ -26,53 +26,6 @@
    <bool>true</bool>
   </property>
   <layout class="QFormLayout" name="formLayout">
-   <item row="0" column="0" colspan="2">
-    <widget class="QSplitter" name="splitter_3">
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <widget class="QComboBox" name="cmb_year">
-      <property name="minimumContentsLength">
-       <number>1</number>
-      </property>
-      <item>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-     </widget>
-     <widget class="QLabel" name="label">
-      <property name="text">
-       <string>년</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmb_mon">
-      <property name="minimumContentsLength">
-       <number>1</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_2">
-      <property name="text">
-       <string>월</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="cmb_date">
-      <property name="minimumContentsLength">
-       <number>1</number>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_3">
-      <property name="text">
-       <string>일</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btn_start">
-      <property name="text">
-       <string>그룹핑하기</string>
-      </property>
-     </widget>
-    </widget>
-   </item>
    <item row="2" column="0" colspan="2">
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
@@ -99,7 +52,7 @@
        <string>Group B &lt;=</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="thresh2">
+     <widget class="QDoubleSpinBox" name="thresh4">
       <property name="minimum">
        <double>-99.989999999999995</double>
       </property>
@@ -107,7 +60,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="value">
-       <double>-5.000000000000000</double>
+       <double>5.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_6">
@@ -128,7 +81,7 @@
        <string>Group D &lt;=</string>
       </property>
      </widget>
-     <widget class="QDoubleSpinBox" name="thresh4">
+     <widget class="QDoubleSpinBox" name="thresh2">
       <property name="minimum">
        <double>-99.989999999999995</double>
       </property>
@@ -136,7 +89,7 @@
        <double>0.100000000000000</double>
       </property>
       <property name="value">
-       <double>5.000000000000000</double>
+       <double>-5.000000000000000</double>
       </property>
      </widget>
      <widget class="QLabel" name="label_8">
@@ -162,83 +115,110 @@
      </widget>
     </widget>
    </item>
-   <item row="4" column="0">
-    <widget class="QLabel" name="label_11">
-     <property name="text">
-      <string>대신 Data</string>
-     </property>
-    </widget>
-   </item>
-   <item row="4" column="1">
-    <widget class="QLabel" name="label_12">
-     <property name="text">
-      <string>키움 Data</string>
-     </property>
-    </widget>
-   </item>
-   <item row="5" column="0" colspan="2">
-    <widget class="QSplitter" name="splitter_6">
+   <item row="3" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter_9">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
-     <widget class="QSplitter" name="splitter_5">
+     <widget class="QSplitter" name="splitter_8">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
       </property>
-      <widget class="QSplitter" name="splitter_4">
-       <property name="orientation">
-        <enum>Qt::Horizontal</enum>
+      <widget class="QLabel" name="label_11">
+       <property name="text">
+        <string>대신 Data</string>
        </property>
-       <widget class="QLabel" name="label_14">
-        <property name="text">
-         <string>매도잔량</string>
+      </widget>
+      <widget class="QSplitter" name="splitter_5">
+       <property name="orientation">
+        <enum>Qt::Vertical</enum>
+       </property>
+       <widget class="QSplitter" name="splitter_4">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QLabel" name="label_14">
+         <property name="text">
+          <string>매도잔량</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="sell_thres">
+         <property name="decimals">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <double>390.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>15.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_13">
+         <property name="text">
+          <string>매수잔량</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="buy_thres">
+         <property name="decimals">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <double>390.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>15.000000000000000</double>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_15">
+         <property name="text">
+          <string>체결강도</string>
+         </property>
+        </widget>
+        <widget class="QDoubleSpinBox" name="str_thres">
+         <property name="decimals">
+          <number>0</number>
+         </property>
+         <property name="maximum">
+          <double>390.000000000000000</double>
+         </property>
+         <property name="value">
+          <double>5.000000000000000</double>
+         </property>
+        </widget>
        </widget>
-       <widget class="QDoubleSpinBox" name="sell_thres">
-        <property name="decimals">
-         <number>0</number>
+       <widget class="QTableWidget" name="main_table">
+        <property name="dragEnabled">
+         <bool>true</bool>
         </property>
-        <property name="maximum">
-         <double>390.000000000000000</double>
+        <property name="alternatingRowColors">
+         <bool>true</bool>
         </property>
-        <property name="value">
-         <double>15.000000000000000</double>
+        <property name="rowCount">
+         <number>1</number>
         </property>
-       </widget>
-       <widget class="QLabel" name="label_13">
-        <property name="text">
-         <string>매수잔량</string>
-        </property>
-       </widget>
-       <widget class="QDoubleSpinBox" name="buy_thres">
-        <property name="decimals">
-         <number>0</number>
-        </property>
-        <property name="maximum">
-         <double>390.000000000000000</double>
-        </property>
-        <property name="value">
-         <double>15.000000000000000</double>
-        </property>
-       </widget>
-       <widget class="QLabel" name="label_15">
-        <property name="text">
-         <string>체결강도</string>
-        </property>
-       </widget>
-       <widget class="QDoubleSpinBox" name="str_thres">
-        <property name="decimals">
-         <number>0</number>
-        </property>
-        <property name="maximum">
-         <double>390.000000000000000</double>
-        </property>
-        <property name="value">
-         <double>5.000000000000000</double>
-        </property>
+        <attribute name="horizontalHeaderMinimumSectionSize">
+         <number>15</number>
+        </attribute>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>70</number>
+        </attribute>
+        <attribute name="verticalHeaderDefaultSectionSize">
+         <number>25</number>
+        </attribute>
+        <row/>
        </widget>
       </widget>
-      <widget class="QTableWidget" name="main_table">
+     </widget>
+     <widget class="QSplitter" name="splitter_6">
+      <property name="orientation">
+       <enum>Qt::Vertical</enum>
+      </property>
+      <widget class="QLabel" name="label_12">
+       <property name="text">
+        <string>키움 Data</string>
+       </property>
+      </widget>
+      <widget class="QTableWidget" name="main_table_2">
        <property name="dragEnabled">
         <bool>true</bool>
        </property>
@@ -260,30 +240,9 @@
        <row/>
       </widget>
      </widget>
-     <widget class="QTableWidget" name="main_table_2">
-      <property name="dragEnabled">
-       <bool>true</bool>
-      </property>
-      <property name="alternatingRowColors">
-       <bool>true</bool>
-      </property>
-      <property name="rowCount">
-       <number>1</number>
-      </property>
-      <attribute name="horizontalHeaderMinimumSectionSize">
-       <number>15</number>
-      </attribute>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>70</number>
-      </attribute>
-      <attribute name="verticalHeaderDefaultSectionSize">
-       <number>25</number>
-      </attribute>
-      <row/>
-     </widget>
     </widget>
    </item>
-   <item row="7" column="0" colspan="2">
+   <item row="4" column="0" colspan="2">
     <widget class="QSplitter" name="splitter_2">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -343,7 +302,7 @@
      </widget>
     </widget>
    </item>
-   <item row="9" column="0" colspan="2">
+   <item row="5" column="0" colspan="2">
     <widget class="QTableWidget" name="main_table_5">
      <property name="dragEnabled">
       <bool>true</bool>
@@ -366,7 +325,53 @@
      <row/>
     </widget>
    </item>
-   <item row="11" column="1">
+   <item row="6" column="0" colspan="2">
+    <widget class="QSplitter" name="splitter_7">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QProgressBar" name="progressBar">
+      <property name="value">
+       <number>24</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="timestep_lbl">
+      <property name="text">
+       <string>timestep</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="timesteps">
+      <property name="decimals">
+       <number>0</number>
+      </property>
+      <property name="maximum">
+       <double>999.000000000000000</double>
+      </property>
+      <property name="value">
+       <double>60.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QLabel" name="offset_lbl">
+      <property name="text">
+       <string>offset</string>
+      </property>
+     </widget>
+     <widget class="QDoubleSpinBox" name="offsets">
+      <property name="decimals">
+       <number>0</number>
+      </property>
+      <property name="value">
+       <double>5.000000000000000</double>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_start_modelling">
+      <property name="text">
+       <string>모델 만들기</string>
+      </property>
+     </widget>
+    </widget>
+   </item>
+   <item row="7" column="1">
     <widget class="QDialogButtonBox" name="buttonBox">
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
@@ -374,6 +379,53 @@
      <property name="standardButtons">
       <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
      </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QSplitter" name="splitter_3">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <widget class="QComboBox" name="cmb_year">
+      <property name="minimumContentsLength">
+       <number>1</number>
+      </property>
+      <item>
+       <property name="text">
+        <string/>
+       </property>
+      </item>
+     </widget>
+     <widget class="QLabel" name="label">
+      <property name="text">
+       <string>년</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmb_mon">
+      <property name="minimumContentsLength">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_2">
+      <property name="text">
+       <string>월</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="cmb_date">
+      <property name="minimumContentsLength">
+       <number>1</number>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_3">
+      <property name="text">
+       <string>일</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btn_start">
+      <property name="text">
+       <string>그룹핑하기</string>
+      </property>
+     </widget>
     </widget>
    </item>
   </layout>
