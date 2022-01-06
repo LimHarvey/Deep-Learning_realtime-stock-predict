@@ -3,6 +3,7 @@
 import pymysql
 import sys
 import os
+import ftplib
 import pandas as pd
 import numpy as np
 import time
@@ -50,11 +51,23 @@ user_daishin = 'remote'
 passwd_daishin = '1234'
 db_daishin = 'dbstock'
 
+ip_local = 'localhost'
+port_local = 3306
+user_local = 'root'
+passwd_local = '1234'
+db_local = 'dbmodel'
+
 conn = pymysql.connect(host = ip, port = port, user = user, passwd = passwd, db = db, charset = 'utf8')
 cursor = conn.cursor()
 
 conn_daishin = pymysql.connect(host = ip_daishin, port = port_daishin, user = user_daishin, passwd = passwd_daishin, db = db_daishin, charset = 'utf8')
 cursor_daishin = conn_daishin.cursor()
+
+conn_local = pymysql.connect(host = ip_local, port = port_local, user = user_local, passwd = passwd_local, db = db_local, charset = 'utf8')
+cursor_local = conn_local.cursor()
+
+conn_local_2 = pymysql.connect(host = ip_local, port = port_local, user = user_local, passwd = passwd_local, db = 'dbgroup', charset = 'utf8')
+cursor_local_2 = conn_local_2.cursor()
 
 # display_que = Queue()
 display_que_2 = Queue()
@@ -66,6 +79,11 @@ df_kiwoom_ = pd.DataFrame(None, columns = kiwoom_columns_)
 
 merged_columns_ = ['종목코드','매수잔량Null','매도잔량Null','체결강도Null','전일종가','900시가','930시가','데이터개수','당일평균','증감율','그룹']
 df_merged_ = pd.DataFrame(None,columns = merged_columns_)
+
+# ftp = ftplib.FTP()
+# ftp_path = '/model'
+# ftp_ip = 'localhost'
+# ftp_port = 21
 
 # class display(QThread) :
 #     def __init__(self, parent) :
@@ -200,7 +218,7 @@ class grab_data(QThread) :
 
         
 
-        for cnt, code_ in enumerate(return_[:10]) :
+        for cnt, code_ in enumerate(return_) :
             try :
                 sql = "select * from {} where 체결시간 between '{}' and '{}';".format(code_,today_date_+' 09:00:00',today_date_+' 15:30:00')
                 df_dai = pd.read_sql(sql, conn_daishin)
@@ -284,7 +302,7 @@ class grab_data_2(QThread) :
         today_date_ = year_+'-'+mon_.zfill(2)+'-'+day_.zfill(2)
         ex_open_date_ = mcal.previous_open(today_date_) # 전 개장일 확인
 
-        for cnt,i in enumerate(return_[:10]) :
+        for cnt,i in enumerate(return_) :
             code_ = i[0]
             
 
@@ -538,8 +556,8 @@ class merging(QThread) :
         day_ = self.parent.ui.cmb_date.currentText()
         date_time_target_ = year_+'-'+mon_+'-'+day_
 
-        date_time_realtime_ = datetime.now().strftime('%y-%m-%d-%H-%M-%S')
-        df_merged_.to_csv('merged_groupping_{}-{}.csv'.format(date_time_target_, date_time_realtime_), encoding='utf8')
+        date_time_realtime_ = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+        df_merged_.to_csv('./group/merged_groupping_{}.csv'.format(date_time_realtime_), encoding='utf8')
 
         A_list = df_merged_[df_merged_['그룹']=='A']['종목코드']
         B_list = df_merged_[df_merged_['그룹']=='B']['종목코드']
@@ -547,6 +565,13 @@ class merging(QThread) :
         D_list = df_merged_[df_merged_['그룹']=='D']['종목코드']
         E_list = df_merged_[df_merged_['그룹']=='E']['종목코드']
         F_list = df_merged_[df_merged_['그룹']=='F']['종목코드']
+
+        sql = "insert into dbgroup.group (time, position) values ('{}','{}');".format(str(date_time_realtime_),'./group/merged_groupping_{}.csv'.format(date_time_realtime_))
+        print('local sql command : ',sql)
+        cursor_local_2.execute(sql)
+        return_ = cursor_local_2.fetchall()
+        conn_local_2.commit()
+        print('local sql return : ',return_)
 
         
 
@@ -1034,8 +1059,25 @@ class modelling(QThread) :
 
         history  = model.fit(x_train, y_train, epochs=epochs,
                                 batch_size=batch_size, validation_split=0.3, callbacks=callbacks_list)
-        now_time_ = datetime.now().strftime('%Y-%m-%d-%H-%M-%S')
+
+        
+        now_time_ = datetime.now().strftime('%y-%m-%d-%H-%M-%S')
         model.save('./model/{}/{}_{}.hdf5'.format(group_, group_, now_time_))
+        # ftp.connect(ftp_ip,ftp_port)
+        # ftp.login('a1_model','a1234b')
+        # ftp.cwd(ftp_path)
+        # file = open('./model/{}/{}_{}.hdf5'.format(group_, group_, now_time_), 'rb')
+        # ftp.storbinary('STOR '+'{}_{}.hdf5'.format(group_, now_time_), file)
+        # file.close
+        # ftp.close
+        sql = "insert into {} (time, position) values ('{}','{}');".format(group_, now_time_,'./model/{}/{}_{}.hdf5'.format(group_, group_, now_time_))
+        print('local sql command : ',sql)
+        cursor_local.execute(sql)
+        return_ = cursor_local.fetchall()
+        conn_local.commit()
+        print('local sql return : ',return_)
+
+        
 
         model.summary()
 
